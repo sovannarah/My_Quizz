@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {% for categorie in categories %}
+        <div id="{{ categorie.id }}" class="d-flex justify-content-center m-4 btn">
+            <a  href="{{ path('quizz', {'idCtg': categorie.id, 'idQsn': 0}) }}"
+                style="text-decoration:none"
+                class="text-secondary"
+            >
+                {{ categorie.name }}
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}

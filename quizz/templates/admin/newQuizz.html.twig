@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="container mt-4 mb-4">
+        <h1>Nouveau Quizz</h1>
+        <div class="col-12">
+            {{ form_start(formQuizz) }}
+            {{ for reponse in formQuizz.reponses  }}
+            {{ form_row(formQuizz.reponses) }}
+            {{ endfor }}
+            <button type="submit" class="btn btn-primary">Valider</button>
+            {{ form_end(formQuizz) }}
+        </div>
+    </section>
+{% endblock %}

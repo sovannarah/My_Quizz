@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizzController!{% endblock %}
+
+{% block body %}
+    <section class="container d-flex flex-column">
+        <div class="m-auto">
+            {% for question in questions %}
+                <div>
+                    <p>{{ question.question }}</p>
+                    {%  for reponse in question.reponses %}
+                        <p>{{ reponse.reponse }}</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+MIN

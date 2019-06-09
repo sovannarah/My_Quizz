@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <section class="container">
+        {% for user in users %}
+            <div class="row">
+            {{ user.email }}
+            <a href="{{ path('update_user', {'id' : user.id}) }}">Modifier</a>
+            </div>
+        {% endfor %}
+
+    </section>
+{% endblock %}

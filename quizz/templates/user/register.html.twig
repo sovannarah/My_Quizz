@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="container mt-4 mb-4">
+        <h1>Inscription</h1>
+        <div class="col-12">
+            {{ form_start(formUser) }}
+            {{ form_widget(formUser) }}
+            <button type="submit" class="btn btn-primary">Valider</button>
+            {{ form_end(formUser) }}
+        </div>
+    </section>
+{% endblock %}

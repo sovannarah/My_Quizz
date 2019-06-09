@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    <section class="container">
+        <div class="row col-12 d-flex justify-content-between border-bottom mt-5">
+            <p>Ajouter un Quizz</p>
+            <a href="{{ path('quizz_new') }}">Creer</a>
+        </div>
+        <div class="row col-12 d-flex justify-content-between border-bottom mt-5">
+            <p>Modifier les Quizz</p>
+            <a href="{{ path('admin_quizz') }}">Modifier</a>
+        </div>
+        <div class="row col-12 d-flex justify-content-between border-bottom mt-5">
+            <p>Modifier les Comptes</p>
+            <a href="{{ path('admin_users') }}">Modifier</a>
+        </div>
+    </section>
+{% endblock %}

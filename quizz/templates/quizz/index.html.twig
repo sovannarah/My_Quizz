@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizzController!{% endblock %}
+
+{% block body %}
+    <section class="container d-flex flex-column">
+        <div class="m-auto">
+            <div class="row mb-4 mt-4">
+                {{ question.question }}
+            </div>
+            <form method="post" action="{{ path("checkRep", {'idCtg': idCtg, 'idQsn' : currQsn} ) }}">
+                {%   for reponse in reponses %}
+                    <div class="row mb-3">
+                        {% if check != "" %}
+                            {% if reponse.reponseExpected == 1 %}
+                                <input type="radio" name="choice" value="{{ reponse.reponse }}" checked disabled/>{{ reponse.reponse }}
+                            {% else %}
+                                <input type="radio" name="choice" value="{{ reponse.reponse }}" disabled/>{{ reponse.reponse }}
+                            {%  endif %}
+                        {% else %}
+                            <input type="radio" name="choice" value="{{ reponse.reponse }}" />{{ reponse.reponse }}
+                        {% endif %}
+                    </div>
+                {%  endfor %}
+            {% if check != "" %}
+                {% if check == "vrai" %}
+                    <p>Bravo! Vous avez trouve la bonne reponse!</p>
+                {% else %}
+                    <p>Malheureusement c'est la mauvaise reponse...</p>
+                {% endif %}
+                {% if end != "end" %}
+                    <a href="{{ path('quizz', {'idCtg' : idCtg, 'idQsn': nextQsn}) }}">
+                        Question suivante
+                    </a>
+                {% else %}
+                    <a href="{{ path('home') }}">
+                        Retourner a laccueil
+                    </a>
+                {% endif %}
+            {% else %}
+                <button class="mt-4" type="submit">Valider la reponse</button>
+            {% endif %}
+            </form>
+        </div>
+    </section>
+{% endblock %}

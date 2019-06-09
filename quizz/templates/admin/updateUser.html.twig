@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <section class="container">
+            {{ form_start(formUser) }}
+            {{ form_row(formUser.username) }}
+            {{ form_row(formUser.email) }}
+            {{ form_row(formUser.password) }}
+            {{ form_row(formUser.confirm_password) }}
+            {{ form_row(formUser.roles) }}
+            {{ form_end(formUser) }}
+    </section>
+{% endblock %}
